@@ -1,5 +1,7 @@
 # Terraform-Version-1.0.0
 
+https://github.com/megaport/terraform-provider-megaport
+
 https://github.com/megaport/megaportgo (MegaportGo) link to Megaport Service Provider
 
 Verify Terraform and Provider Versions
