@@ -1,18 +1,18 @@
 provider "megaport" {
-  environment           = "staging"
-  access_key            = "access_key"
-  secret_key            = "secret_Key"
+  environment           = "production"
+  access_key            = "ej62iagd3csefajn3gag8a5ku"
+  secret_key            = "1hpnnofkpjo0pj68nehs4jeoeecjq1ajq8aortk0rv0c0q1qptem"
   accept_purchase_terms = true
 }
 
-data "megaport_location" "bne_nxt1" {
-  name = "NextDC B1"
+data "megaport_location" "dal_c01" {
+  name = "Cologix DAL2"
 }
 
 resource "megaport_mcr" "mcr" {
   product_name         = "Megaport MCR Example"
   port_speed           = 1000
-  location_id          = data.megaport_location.bne_nxt1.id
+  location_id          = data.megaport_location.dal_c01.id
   contract_term_months = 1
 
   prefix_filter_list = {
