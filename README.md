@@ -15,7 +15,9 @@ on darwin_arm64
 toddwenzel@FWXQR2TD4P terraform_newversion % terraform version
 
 Terraform v1.8.5
+
 on darwin_arm64
+
 + provider registry.terraform.io/megaport/megaport v1.0.0
 
 
