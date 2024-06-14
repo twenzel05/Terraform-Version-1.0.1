@@ -5,8 +5,6 @@ https://github.com/megaport/megaportgo (MegaportGo) link to Megaport Service Pro
 Verify Terraform and Provider Versions
 
 
-+provider registry.terraform.io/megaport v1.0.0
-
 toddwenzel@FWXQR2TD4P terraform_newversion % terraform version
 
 Terraform v1.8.5
