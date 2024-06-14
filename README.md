@@ -4,13 +4,6 @@ https://github.com/megaport/megaportgo (MegaportGo) link to Megaport Service Pro
 
 Verify Terraform and Provider Versions
 
-terraform version
-
-Which should output all the version info like this
-
-terraform v1.8.4
-
-on darwin_arm64
 
 +provider registry.terraform.io/megaport v1.0.0
 
