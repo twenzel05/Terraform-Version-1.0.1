@@ -1,0 +1,64 @@
+Useful Terraform Commands
+
+Terraform Commands
+
+terraform version (find the terraform version)
+
+-chdir=<path_to/tf> <subcommand> (switch the working directory)
+
+terraform init (initialize the directory)
+
+terraform plan (create and execution plan)
+
+terraform apply (Apply changes)
+
+terraform destroy (destroy the managed infrastructure)
+
+terraform plan -out <plan_name> (output a deployment plan)
+
+terraform plan -destroy (output a destroy plan)
+
+terraform apply <plan_name> (apply a specific plan)
+
+terraform apply -target= <resource_name> (only apply changes to a targeted resource)
+
+terraform apply -var my_variable= <variable> (pass a variable via the command line)
+
+Terraform providers (get provider info used in configuration)
+
+mv aws.tf aws.null (will change name of tf)
+
+rm aws.null (will delete file)
+
+
+Importing a portal config into terraform
+# terraform import megaport_mve.example_mve 03fec669-f2a8-4488-9be9-def6f7998a10
+
+Removing a terraform configuration manually
+
+Removing an instance that doesn’t delete or destroy.  If I accidentally delete the config in the MP portal instead of terraform destroy.  https://stackoverflow.com/questions/55265203/terraform-delete-all-resources-except-one
+
+
+# list all resources 
+terraform state list 
+
+# remove that resource you don't want to destroy # you can add more to be excluded if required 
+terraform state rm <resource_to_be_deleted> 
+# destroy the whole stack except above excluded resource(s) 
+terraform destroy
+
+
+toddwenzel@FWXQR2TD4P terraform_project % terraform state list
+megaport_aws_connection.aws_vxc
+megaport_mve.mve_atl-tx1
+megaport_vxc.transit_blue
+toddwenzel@FWXQR2TD4P terraform_project % terraform state rm megaport_aws_connection.aws_vxc
+Removed megaport_aws_connection.aws_vxc
+Successfully removed 1 resource instance(s).
+toddwenzel@FWXQR2TD4P terraform_project % terraform state rm megaport_mve.mve_atl-tx1
+Removed megaport_mve.mve_atl-tx1
+Successfully removed 1 resource instance(s).
+toddwenzel@FWXQR2TD4P terraform_project % terraform state rm megaport_vxc.transit_blue
+Removed megaport_vxc.transit_blue
+Successfully removed 1 resource instance(s).
+
