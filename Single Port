@@ -1,26 +1,18 @@
-terraform {
-  required_providers {
-    megaport = {
-      source  = "megaport/megaport"
-      version = "1.0.0-beta1"
-    }
-  }
-}
 provider "megaport" {
-  environment           = "staging"
-  access_key            = "access_key"
-  secret_key            = "secret_Key"
+  environment           = "production"
+  access_key            = "ej62iagd3csefajn3gag8a5ku"
+  secret_key            = "1hpnnofkpjo0pj68nehs4jeoeecjq1ajq8aortk0rv0c0q1qptem"
   accept_purchase_terms = true
 }
 
-data "megaport_location" "bne_nxt1" {
-  name = "NextDC B1"
+data "megaport_location" "atl_tx1" {
+  name = "Digital Realty ATL1"
 }
 
 resource "megaport_port" "port" {
-  product_name           = "Megaport Port Example"
+  product_name           = "Todd Terraform Example"
   port_speed             = 1000
-  location_id            = data.megaport_location.bne_nxt1.id
+  location_id            = data.megaport_location.atl_tx1.id
   contract_term_months   = 1
   marketplace_visibility = false
   cost_centre            = "Megaport Single Port Example"
