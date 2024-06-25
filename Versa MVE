@@ -1,7 +1,7 @@
 provider "megaport" {
-  environment           = "staging"
-  access_key            = "access_key"
-  secret_key            = "secret_Key"
+  environment           = "production"
+  access_key            = "ej62iagd3csefajn3gag8a5ku"
+  secret_key            = "1hpnnofkpjo0pj68nehs4jeoeecjq1ajq8aortk0rv0c0q1qptem"
   accept_purchase_terms = true
 }
 
