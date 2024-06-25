@@ -5,19 +5,19 @@ provider "megaport" {
   accept_purchase_terms = true
 }
 
-data "megaport_location" "bne_nxt1" {
-  name = "NextDC B1"
+data "megaport_location" "dal_co1" {
+  name = "Cologix DAL2"
 }
 
 resource "megaport_mve" "mve" {
-  product_name         = "Megaport Versa MVE Example"
-  location_id          = data.megaport_location.bne_nxt1.id
+  product_name           = "Megaport-Versa-MVE"
+  location_id            = data.megaport_location.dal_co1.id
   contract_term_months = 1
 
   vendor_config = {
     vendor             = "versa"
-    product_size       = "LARGE"
-    image_id           = 20
+    product_size       = "SMALL"
+    image_id           = 23
     director_address   = "director1.versa.com"
     controller_address = "controller1.versa.com"
     local_auth         = "SDWAN-Branch@Versa.com"
