@@ -1,0 +1,15 @@
+Terraform Name
+terraform_newversion
+
+toddwenzel@FWXQR2TD4P ~ % terraform init
+Terraform initialized in an empty directory!
+
+The directory has no Terraform configuration files. You may begin working
+with Terraform immediately by creating Terraform configuration files.
+toddwenzel@FWXQR2TD4P ~ % terraform version
+Terraform v1.8.5
+on darwin_arm64
+toddwenzel@FWXQR2TD4P ~ % cd terraform_newversion
+toddwenzel@FWXQR2TD4P terraform_newversion % ls
+mcr.tf				mve.null			provider.tf			terraform.tfstate		terraform.tfstate.backup
+toddwenzel@FWXQR2TD4P terraform_newversion % 
