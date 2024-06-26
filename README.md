@@ -1,4 +1,4 @@
-# Terraform-Version-1.0.0
+# Terraform-Version-1.0.1
 
 https://github.com/megaport/terraform-provider-megaport
 
@@ -13,6 +13,6 @@ Terraform v1.8.5
 
 on darwin_arm64
 
-+provider registry.terraform.io/megaport/megaport v1.0.0
++provider registry.terraform.io/megaport/megaport v1.0.1
 
 
