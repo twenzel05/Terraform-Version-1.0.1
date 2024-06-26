@@ -15,7 +15,7 @@ resource "megaport_mcr" "mcr" {
   location_id          = data.megaport_location.dal_c01.id
   contract_term_months = 1
 
-  prefix_filter_list = {
+  prefix_filter_lists = [{
     description    = "Megaport Prefix Filter List"
     address_family = "IPv4"
     entries = [
@@ -32,5 +32,5 @@ resource "megaport_mcr" "mcr" {
         le     = 24
       }
     ]
-  }
+  }]
 }
