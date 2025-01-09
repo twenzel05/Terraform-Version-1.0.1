@@ -1,0 +1,36 @@
+provider "megaport" {
+  environment           = "production"
+  access_key            = "21djnrjt56982irnbpefns8m4b"
+  secret_key            = "5gerq8fdvs5ant4nmppd70j8h35v5dp3jvnpdm5ehrsfqf2klki"
+  accept_purchase_terms = true
+}
+
+data "megaport_location" "ams_tc5" {
+  name = "Equinix-Telecity Southeast AMS 5"
+}
+
+resource "megaport_mcr" "mcr" {
+  product_name         = "Bullish Global Test"
+  port_speed           = 1000
+  location_id          = data.megaport_location.ams_tc5.id
+  contract_term_months = 1
+
+  prefix_filter_lists = [{
+    description    = "Megaport Prefix Filter List"
+    address_family = "IPv4"
+    entries = [
+      {
+        action = "permit"
+        prefix = "10.0.1.0/24"
+        ge     = 24
+        le     = 24
+      },
+      {
+        action = "deny"
+        prefix = "10.0.2.0/24"
+        ge     = 24
+        le     = 24
+      }
+    ]
+  }]
+}
