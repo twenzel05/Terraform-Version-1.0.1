@@ -16,3 +16,6 @@ on darwin_arm64
 +provider registry.terraform.io/megaport/megaport v1.0.1
 
 
+https://registry.terraform.io/providers/megaport/megaport/latest/docs/resources/mcr
+
+
