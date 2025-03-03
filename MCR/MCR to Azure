@@ -1,0 +1,59 @@
+provider "megaport" {
+  environment           = "production"
+  access_key            = "21djnrjt56982irnbpefns8m4b"
+  secret_key            = "5gerq8fdvs5ant4nmppd70j8h35v5dp3jvnpdm5ehrsfqf2klki"
+  accept_purchase_terms = true
+}
+
+data "megaport_location" "dal_c01" {
+  name = "Cologix DAL2"
+}
+
+resource "megaport_mcr" "mcr" {
+  product_name         = "Megaport MCR Todd Teraform"
+  port_speed           = 1000
+  asn                  = 65000
+  location_id          = data.megaport_location.dal_c01.id
+  contract_term_months = 12
+  diversity_zone       = "red"
+
+  prefix_filter_lists = [{
+    description    = "Megaport Prefix Filter List"
+    address_family = "IPv4"
+    entries = [
+      {
+        action = "permit"
+        prefix = "10.0.1.0/24"
+        ge     = 24
+        le     = 24
+      },
+      {
+        action = "deny"
+        prefix = "10.0.2.0/24"
+        ge     = 24
+        le     = 24
+      }
+    ]
+  }]
+}
+
+resource "megaport_vxc" "azure_vxc" {
+  product_name         = "Megaport VXC Example - Azure"
+  rate_limit           = 50
+  contract_term_months = 1
+
+  a_end = {
+    requested_product_uid = megaport_mcr.mcr.product_uid
+    ordered_vlan          = 0
+  }
+
+  b_end = {}
+
+  b_end_partner_config = {
+    partner = "azure"
+    azure_config = {
+      port_choice = "primary"
+      service_key = "36ff1135-05d9-4b3e-99c5-c27340ae34b0"
+    }
+  }
+}
